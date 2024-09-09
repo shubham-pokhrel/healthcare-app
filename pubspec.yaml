@@ -54,6 +54,13 @@ dev_dependencies:
 flutter:
   assets:
     - lib/assets/
+  fonts:
+    - family: Manjari
+      fonts:
+        - asset: lib/assets/fonts/Manjari-Regular.otf
+          weight: 400
+        - asset: lib/assets/fonts/Manjari-Thin.otf
+          weight: 100
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
