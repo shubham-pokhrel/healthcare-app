@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _rememberMe = false; // checkbox state
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +27,6 @@ class LoginScreen extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-
               SizedBox(height: 8),
               Text(
                 "Log in to continue",
@@ -51,8 +57,15 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Checkbox(value: false, onChanged: (value) {}),
-                      Text("Remember Me")
+                      Checkbox(
+                        value: _rememberMe,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _rememberMe = value ?? false; // Update checkbox state
+                          });
+                        },
+                      ),
+                      Text("Remember Me"),
                     ],
                   ),
                   TextButton(
@@ -61,7 +74,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              
               SizedBox(height: 16),
               Row(
                 children: [
@@ -76,7 +88,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 16),
               ElevatedButton.icon(
                 onPressed: () {},
-                icon: Image.asset('lib/assets/google_icon.png', height: 24), 
+                icon: Image.asset('lib/assets/google_icon.png', height: 24),
                 label: Text("Sign In Using Google"),
               ),
               SizedBox(height: 16),
@@ -84,8 +96,11 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {},
                 child: Text("Sign In"),
               ),
-              Text("Don't have an account?"),
               SizedBox(height: 16),
+              Text(
+                "Don't have an account?",
+                textAlign: TextAlign.center,
+              ),
               TextButton(
                 onPressed: () {},
                 child: Text("Sign Up"),
