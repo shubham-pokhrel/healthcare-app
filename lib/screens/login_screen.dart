@@ -227,7 +227,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           alignment: Alignment.center,
                           child: LayoutBuilder(
                             builder: (context, constraints) {
-                              double buttonWidth = constraints.maxWidth * 0.6;
+                              double buttonWidth = constraints.maxWidth * 0.65;
                               if (buttonWidth> 250)
                                 buttonWidth = 250;
                               double buttonHeight = constraints.maxWidth > 600 ? 52 : 30;
