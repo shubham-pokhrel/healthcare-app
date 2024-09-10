@@ -101,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                         fontFamily: 'Manjari',
                         fontWeight: FontWeight.w400,
                       ),

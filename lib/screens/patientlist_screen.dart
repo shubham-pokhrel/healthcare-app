@@ -15,10 +15,13 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
   bool isMobile = true;
   double maxW = 200;
   double maxH = 200;
+  bool isDarkModec = true;
+
 
   @override
   Widget build(BuildContext context) {
     bool isDarkMode = widget.themeMode == ThemeMode.dark;
+    isDarkModec= isDarkMode;
     return Scaffold(
       backgroundColor: isDarkMode ? Color(0xFF38414B) :  Color(0xFFE4EBF1), // last is light theme ;
       body: LayoutBuilder(
@@ -61,7 +64,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   ),
                   //SizedBox(height: 0),
                   Padding(
-                    padding: const EdgeInsets.only(top: 0.0, left: 50.0, right: 50),
+                    padding: const EdgeInsets.only(top: 0.0, left: 84.0, right: 84),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       //mainAxisAlignment: MainAxisAlignment.end,
@@ -73,7 +76,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             //height: 1.5,
                             fontSize: constraints.maxWidth * 0.07 > 90 ? 90 : constraints.maxWidth*0.07,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black,
+                            color: isDarkModec ? Colors.white : Colors.black,
                             fontFamily: 'Manjari',
                           ),
                         ),                        
@@ -82,30 +85,34 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        left: 50.0, right: 50.0, bottom: 15.0),
+                        left: 84.0, right: 84.0, bottom: 15.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         ConstrainedBox(
                           constraints: BoxConstraints(
-                            maxWidth: constraints.maxWidth * 0.4 > 465 ? 465 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.4,
+                            maxWidth: constraints.maxWidth * 0.42 > 476 ? 476 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.42,
                             maxHeight: constraints.maxWidth * 0.2 > 50 ? 50 : constraints.maxWidth * 0.2,
                           ),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: ('Search by Patient, Bed No, Date etc.'),
-                              prefixIcon: Image.asset(
-                                'lib/assets/search_icon.png',
-                                height: 5,
+                              hintStyle: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w200,
+                                fontFamily: 'Manjari',
+                                color: isDarkMode ? Colors.white.withOpacity(0.4) : Colors.black,
                               ),
+                              prefixIcon: isDarkMode ? Image.asset('lib/assets/search.png',height: 5,) : 
+                              Image.asset('lib/assets/search_icon.png',height: 5,),
                               contentPadding: EdgeInsets.symmetric(
                                   vertical: 10, horizontal: 10),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               filled: true,
-                              fillColor: Color(0xFFE4EBF1),
+                              fillColor: isDarkMode ? Color(0xFF45515F) :  Color(0xFFE4EBF1),
                             ),
                             style: TextStyle(
                               fontSize: constraints.maxWidth * 0.02 > 24 ? 24 : constraints.maxWidth*0.02,
@@ -124,17 +131,21 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: ('Sort By :'),
-                              suffixIcon: Image.asset(
-                                'lib/assets/drop_icon.png',
-                                height: 5,
+                              hintStyle: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w200,
+                                fontFamily: 'Manjari',
+                                color: isDarkMode ? Colors.white.withOpacity(0.4) : Colors.black,
                               ),
+                              suffixIcon: isDarkMode ? Image.asset('lib/assets/arrow_drop_down.png',height: 5,) : 
+                              Image.asset('lib/assets/drop_icon.png',height: 5,),
                               contentPadding: EdgeInsets.symmetric(
                                   vertical: 10, horizontal: 10),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               filled: true,
-                              fillColor: Color(0xFFE4EBF1),
+                              fillColor: isDarkMode ? Color(0xFF45515F)  :  Color(0xFFE4EBF1),
                             ),
                             style: TextStyle(
                               fontSize: constraints.maxWidth * 0.02 > 24 ? 24 : constraints.maxWidth*0.02,
@@ -156,7 +167,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(
                                   0xFF48A9F8), // Blue color similar to the Sign In button
-                              foregroundColor: Color(0xE4EBF1F5),
+                              foregroundColor: isDarkMode ? Color(0xFF38414B) :  Color(0xFFE4EBF1),
                               padding: EdgeInsets.symmetric(
                                   horizontal: 12, vertical: 10),
                               shape: RoundedRectangleBorder(
@@ -166,9 +177,10 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             child: Text(
                               '+ Add Patient',
                               style: TextStyle(
-                                fontSize: constraints.maxWidth * 0.02 > 22 ? 22 : constraints.maxWidth*0.02,
-                                fontWeight: FontWeight.w700,
+                                fontSize: constraints.maxWidth * 0.02 > 20 ? 20 : constraints.maxWidth*0.02,
+                                fontWeight: FontWeight.w400,
                                 fontFamily: 'Manjari',
+                                color:  Colors.white,
                               ),
                             ),
                           ),
@@ -179,11 +191,11 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   // List of patients for Desktop
                   Padding(
                     padding: const EdgeInsets.only(
-                        right: 50.0, left: 50.0, bottom: 20.0),
+                        right: 84.0, left: 84.0, bottom: 20.0),
                     child: Container(
-                      color: Color(0xFFD3D8DE),
+                      color: isDarkMode ? Color(0xFF45515F) :  Color(0xFFD3D8DE), //background dark: #45515F; 
                       padding: const EdgeInsets.only(
-                          right: 20.0, left: 20.0, bottom: 10.0, top: 20),
+                          right: 93.0, left: 59.0, bottom: 10.0, top: 20),
                       child: SizedBox(
                         height: constraints.maxHeight * 0.7 > 709 ? 709 : constraints.maxHeight * 0.7, // Adjust height to your needs
                         width: constraints.maxWidth * 0.95 > 1272 ? 1272 + constraints.maxWidth * 0.3 : constraints.maxWidth * 0.95,
@@ -212,7 +224,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   // Mobile Layout
 
                   Container(
-                    color: Color(0xFFD3D8DE),
+                    color: isDarkMode ? Color(0xFF45515F) :  Color(0xFFD3D8DE),
                     width: constraints.maxWidth,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -226,6 +238,11 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             'Logout',
                             style: TextStyle(
                               decoration: TextDecoration.underline,
+                              decorationColor: isDarkModec ? Colors.white : Colors.black,
+                              color: isDarkModec ? Colors.white : Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Manjari',
                             ),
                           ),
                         ),
@@ -248,7 +265,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             height: 1.5,
                             fontSize: 45,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black,
+                            color: isDarkModec ? Colors.white : Colors.black,
                             fontFamily: 'Manjari',
                           ),
                         ),
@@ -259,7 +276,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             height: 0.9,
                             fontSize: 45,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black,
+                            color: isDarkModec ? Colors.white : Colors.black,
                             fontFamily: 'Manjari',
                           ),
                         ),
@@ -286,22 +303,28 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: ('Search'),
-                              prefixIcon: Image.asset(
-                                'lib/assets/search_icon.png',
-                                height: 5,
+                              hintStyle: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'Manjari',
+                                color: isDarkMode ? Colors.white.withOpacity(0.7) : Colors.black,
+
                               ),
+                              prefixIcon: isDarkMode ? Image.asset('lib/assets/search.png',height: 5,) : 
+                              Image.asset('lib/assets/search_icon.png',height: 5,),
                               contentPadding: EdgeInsets.symmetric(
-                                  vertical: 5, horizontal: 5),
+                                  vertical: 0, horizontal: 0),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               filled: true,
-                              fillColor: Color(0xFFE4EBF1),
+                              fillColor: isDarkMode ? Color(0xFF38414B) :  Color(0xFFE4EBF1),
                             ),
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w700,
                               fontFamily: 'Manjari',
+                              color: isDarkMode ? Colors.white.withOpacity(0.5) : Colors.black,
                             ),
                           ),
                         ),
@@ -321,34 +344,35 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: ('Sort By :'),
-                              suffixIcon: Image.asset(
-                                'lib/assets/drop_icon.png',
-                                height: 5,
+                              hintStyle: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'Manjari',
+                                color: isDarkMode ? Colors.white.withOpacity(0.7) : Colors.black,
                               ),
+                              suffixIcon: isDarkMode ? Image.asset('lib/assets/arrow_drop_down.png',height: 5,) : 
+                              Image.asset('lib/assets/drop_icon.png',height: 5,),
                               contentPadding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 5),
+                                  vertical: 0, horizontal: 10),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               filled: true,
-                              fillColor: Color(0xFFE4EBF1),
+                              fillColor:  isDarkMode ? Color(0xFF38414B) :  Color(0xFFE4EBF1),
                             ),
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w700,
                               fontFamily: 'Manjari',
+                              color: isDarkMode ? Colors.white : Colors.black,
                             ),
                           ),
                         ),
                         Spacer(),
                         ConstrainedBox(
                           constraints: BoxConstraints(
-                            maxWidth: constraints.maxWidth * 0.15 > 89
-                                ? 89
-                                : constraints.maxWidth * 0.15,
-                            maxHeight: constraints.maxWidth * 0.2 > 27
-                                ? 27
-                                : constraints.maxWidth * 0.2,
+                            maxWidth: constraints.maxWidth * 0.15 > 89 ? 89 : constraints.maxWidth * 0.15,
+                            maxHeight: constraints.maxWidth * 0.2 > 27 ? 27 : constraints.maxWidth * 0.2,
                           ),
                           child: ElevatedButton(
                             onPressed: () {
@@ -369,7 +393,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                               style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.w700,
-                                color: Colors.black,
+                                color: isDarkMode ? Colors.white : Colors.black,
                                 fontFamily: 'Manjari',
                               ),
                             ),
@@ -383,7 +407,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                     padding: const EdgeInsets.only(
                         right: 15.0, left: 15.0, bottom: 20.0),
                     child: Container(
-                      color: Color(0xFFD3D8DE),
+                      color: isDarkMode ? Color(0xFF45515F) :  Color(0xFFD3D8DE),
                       padding: const EdgeInsets.only(
                           right: 10.0, left: 10.0, bottom: 10.0, top: 10),
                       child: SizedBox(
@@ -428,18 +452,17 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
     //print('Patient image path: ${patient.images}');
     //print(maxW);
     double i= double.parse("${patient.images}");
-    double value = 55 * i * i - 215 * i + 525;
-    print(value);
+    double value = (65 * i * i - 255 * i + 520)-(maxW/1440);
+    //print(maxW);
     //print(maxW* 0.03 > 40 ? 40 : maxW*0.03);
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 7.0),
+      padding: const EdgeInsets.only(left: 0,top: 13, bottom: 10,),
       child: Container(
         // White background for the individual patient cards
         height: maxH * 0.8 > 199 ? 199 : maxH * 0.8,
         width: maxW * 0.8 > 1120 ? 1120 : maxW * 0.8,
         decoration: BoxDecoration(
-          color: Color(
-              0xFFD3D8DE), // Background color for the patient details container
+          color: isDarkModec ? Color(0xFF3E4A58) : Color(0xFFD3D8DE), // Background color for the patient details container ; dark background: #3E4A58;
           border: Border.all(
             color: Colors.black, // Outline color
             width: 1, // Outline width
@@ -448,7 +471,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
         ),
         child: Padding(
           padding:
-              const EdgeInsets.only(left: 10.0, top: 5, right: 10, bottom: 5),
+              const EdgeInsets.only(left: 49.0, top: 20, right: 48, bottom: 5),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -472,9 +495,11 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                 patient.name,
                                 style: TextStyle(
                                   fontSize: maxW* 0.03 > 40 ? 40 : maxW*0.03,
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w400,
                                   fontFamily: 'Manjari',
                                   decoration: TextDecoration.underline,
+                                  decorationColor: isDarkModec ? Colors.white : Colors.black,
+                                  color: isDarkModec ? Colors.white : Colors.black,
                                 ),
                               ),
                         SizedBox(width: value,),
@@ -487,16 +512,18 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                   "Dr. Abrams",
                                   style: TextStyle(
                                     fontSize: maxW* 0.025 > 24 ? 24 : maxW*0.025,
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.w400,
                                     fontFamily: 'Manjari',
+                                    color: isDarkModec ? Colors.white : Colors.black,
                                   ),
                                 ),
                             Text(
                                   "Last Appointment: 20/08/2024",
                                   style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
+                                    fontSize: maxW* 0.02 > 16 ? 16 : maxW*0.02,
+                                    fontWeight: FontWeight.w400,
                                     fontFamily: 'Manjari',
+                                    color: isDarkModec ? Colors.white : Colors.black,
                                   ),
                                 ),
                           ],
@@ -512,10 +539,9 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                           height: maxH * 0.6 > 100 ? 100 : maxH * 0.6,
                           width: 306,
                           decoration: BoxDecoration(
-                            color: Color(
-                                0xFFD3D8DE), // Background color for the patient details container
+                            color: isDarkModec ? Color(0xFF45515F) : Color(0xFFD3D8DE), // Background color for the patient details container
                             border: Border.all(
-                              color: Colors.black, // Outline color
+                              color: isDarkModec ? Colors.white : Colors.black, // Outline color
                               width: 1, // Outline width
                             ),
                             borderRadius: BorderRadius.circular(
@@ -536,6 +562,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,
                                         fontFamily: 'Manjari',
+                                        color: isDarkModec ? Colors.white : Colors.black,
                                       ),
                                     ),
                                     SizedBox(width: 10),
@@ -545,6 +572,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700,
                                         fontFamily: 'Manjari',
+                                        color: isDarkModec ? Colors.white : Colors.black,
                                       ),
                                     ),
                                   ],
@@ -557,8 +585,9 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                       patient.bedNumber,
                                       style: TextStyle(
                                         fontSize: 32,
-                                        fontWeight: FontWeight.w700,
+                                        fontWeight: FontWeight.w400,
                                         fontFamily: 'Manjari',
+                                        color: isDarkModec ? Colors.white : Colors.black,
                                       ),
                                     ),
                                     SizedBox(width: 12),
@@ -566,8 +595,9 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                       patient.wardNumber,
                                       style: TextStyle(
                                         fontSize: 32,
-                                        fontWeight: FontWeight.w700,
+                                        fontWeight: FontWeight.w400,
                                         fontFamily: 'Manjari',
+                                        color: isDarkModec ? Colors.white : Colors.black,
                                       ),
                                     ),                                            
                                   ],
@@ -605,10 +635,11 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             //SizedBox(height: 5),
                             Text(patient.status,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: isDarkModec ? Colors.white : Colors.black,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w700,
                                   fontFamily: 'Manjari',
+                                  
                                 )),
                           ],
                         ),
@@ -645,7 +676,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             Text(
                               patient.bloodPressure,
                               style: TextStyle(
-                                color: Colors.black,
+                                color: isDarkModec ? Colors.white : Colors.black,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Manjari',
@@ -681,11 +712,11 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                           children: [
                             Image.asset('lib/assets/dheart-rate.png',
                                 height: 50, width: 50.2),
-                            SizedBox(height: 5),
+                            SizedBox(height: 8),
                             Text(
                               patient.heartRate,
                               style: TextStyle(
-                                color: Colors.black,
+                                color: isDarkModec ? Colors.white : Colors.black,
                                 fontSize: 8,
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Manjari',
@@ -733,10 +764,9 @@ break
         height: maxH * 0.6 > 93 ? 93 : maxH * 0.6,
         width: 300,
         decoration: BoxDecoration(
-          color: Color(
-              0xFFD3D8DE), // Background color for the patient details container
+          color: isDarkModec ? Color(0xFF3E4A58) : Color(0xFFD3D8DE),// Background color for the patient details container
           border: Border.all(
-            color: Colors.black, // Outline color
+            color: isDarkModec ? Color(0xFF3E4A58): Colors.black, // Outline color
             width: 1, // Outline width
           ),
           borderRadius: BorderRadius.circular(8), // Rounded corners
@@ -770,6 +800,7 @@ break
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Manjari',
+                                color: isDarkModec ? Colors.white : Colors.black,
                               ),
                             ),
                             SizedBox(width: 10),
@@ -781,10 +812,9 @@ break
                                   height: maxH * 0.6 > 24 ? 24 : maxH * 0.6,
                                   width: 149,
                                   decoration: BoxDecoration(
-                                    color: Color(
-                                        0xFFD3D8DE), // Background color for the patient details container
+                                    color: isDarkModec ? Color(0xFF3E4A58) : Color(0xFFD3D8DE), // Background color for the patient details container
                                     border: Border.all(
-                                      color: Colors.black, // Outline color
+                                      color: isDarkModec ? Colors.white : Colors.black, // Outline color
                                       width: 1, // Outline width
                                     ),
                                     borderRadius: BorderRadius.circular(
@@ -804,6 +834,7 @@ break
                                                 fontSize: 6,
                                                 fontWeight: FontWeight.w600,
                                                 fontFamily: 'Manjari',
+                                                color:isDarkModec ? Colors.white : Colors.black,
                                               ),
                                             ),
                                             SizedBox(width: 10),
@@ -813,6 +844,7 @@ break
                                                 fontSize: 6,
                                                 fontWeight: FontWeight.w600,
                                                 fontFamily: 'Manjari',
+                                                color: isDarkModec ? Colors.white : Colors.black,
                                               ),
                                             ),
                                             SizedBox(width: 10),
@@ -822,6 +854,7 @@ break
                                                 fontSize: 6,
                                                 fontWeight: FontWeight.w600,
                                                 fontFamily: 'Manjari',
+                                                color: isDarkModec ? Colors.white : Colors.black,
                                               ),
                                             ),
                                           ],
@@ -836,6 +869,7 @@ break
                                                 fontSize: 9,
                                                 fontWeight: FontWeight.w700,
                                                 fontFamily: 'Manjari',
+                                                color: isDarkModec ? Colors.white : Colors.black,
                                               ),
                                             ),
                                             SizedBox(width: 12),
@@ -845,6 +879,7 @@ break
                                                 fontSize: 9,
                                                 fontWeight: FontWeight.w700,
                                                 fontFamily: 'Manjari',
+                                                color: isDarkModec ? Colors.white : Colors.black,
                                               ),
                                             ),
                                             SizedBox(width: 10),
@@ -854,6 +889,7 @@ break
                                                 fontSize: 9,
                                                 fontWeight: FontWeight.w700,
                                                 fontFamily: 'Manjari',
+                                                color: isDarkModec ? Colors.white : Colors.black,
                                               ),
                                             ),
                                           ],
@@ -896,10 +932,11 @@ break
                                 //SizedBox(height: 5),
                                 Text(patient.status,
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: isDarkModec ? Colors.white : Colors.black,
                                       fontSize: 8,
                                       fontWeight: FontWeight.w700,
                                       fontFamily: 'Manjari',
+                                      
                                     )),
                               ],
                             ),
@@ -933,11 +970,11 @@ break
                                     'lib/assets/blood-drop-donation.png',
                                     height: 20,
                                     width: 20),
-                                //SizedBox(height: 5),
+                                //SizedBox(height: 15),
                                 Text(
                                   patient.bloodPressure,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: isDarkModec ? Colors.white : Colors.black,
                                     fontSize: 8,
                                     fontWeight: FontWeight.w700,
                                     fontFamily: 'Manjari',
@@ -976,7 +1013,7 @@ break
                                 Text(
                                   patient.heartRate,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: isDarkModec ? Colors.white : Colors.black,
                                     fontSize: 8,
                                     fontWeight: FontWeight.w700,
                                     fontFamily: 'Manjari',
