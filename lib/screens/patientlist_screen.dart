@@ -92,7 +92,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                       children: [
                         ConstrainedBox(
                           constraints: BoxConstraints(
-                            maxWidth: constraints.maxWidth * 0.42 > 476 ? 476 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.42,
+                            maxWidth: constraints.maxWidth * 0.35 > 476 ? 476 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.35,
                             maxHeight: constraints.maxWidth * 0.2 > 50 ? 50 : constraints.maxWidth * 0.2,
                           ),
                           child: TextField(
@@ -173,6 +173,8 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
+                              
+                              
                             ),
                             child: Text(
                               '+ Add Patient',
@@ -235,7 +237,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                 context); // Navigate back to the previous screen (LoginScreen)
                           },
                           child: Text(
-                            'Logout',
+                            'Log Out',
                             style: TextStyle(
                               decoration: TextDecoration.underline,
                               decorationColor: isDarkModec ? Colors.white : Colors.black,
@@ -288,7 +290,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, bottom: 10.0),
+                        left: 15.0, right: 29.0, bottom: 10.0),
                     child: Row(
                       children: [
                         ConstrainedBox(
@@ -389,10 +391,10 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                               ),
                             ),
                             child: Text(
-                              '+Add',
+                              '+ Add',
                               style: TextStyle(
                                 fontSize: 11,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w400,
                                 color: isDarkMode ? Colors.white : Colors.black,
                                 fontFamily: 'Manjari',
                               ),
@@ -405,7 +407,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   // List of patients for Mobile
                   Padding(
                     padding: const EdgeInsets.only(
-                        right: 15.0, left: 15.0, bottom: 20.0),
+                        right: 29.0, left: 15.0, bottom: 20.0),
                     child: Container(
                       color: isDarkMode ? Color(0xFF45515F) :  Color(0xFFD3D8DE),
                       padding: const EdgeInsets.only(
