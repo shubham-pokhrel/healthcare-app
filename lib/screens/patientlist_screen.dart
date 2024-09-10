@@ -28,6 +28,8 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
         builder: (context, constraints) {
           maxW = constraints.maxWidth;
           maxH = constraints.maxHeight;
+          print(maxW);
+          print(maxH);
           isMobile = constraints.maxWidth <= 600; // Check if the screen is mobile
 
           // Decide which patient data to display based on view
@@ -483,7 +485,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   height: 150, width: 150),
               // Name and Info
               SizedBox(
-                width: 5,),
+                width: 53,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -608,7 +610,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                             ),
                           )
                       ),
-                      SizedBox(width: 12.3,),
+                      SizedBox(width: 26,),
                               // Status box
                       Container(
                         width: 150,
@@ -647,7 +649,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 12.3,
+                        width: 18,
                       ),
               
                       // Blood Pressure box
@@ -688,7 +690,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 12.3,
+                        width: 18,
                       ),
               
                       // Heart Rate box
@@ -743,15 +745,15 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
     );
   }
 
-/*
+/***************************************************************************************************
 
 
 
 
-break
+                                              break
 
 
-*/
+**************************************************************************************************/
 
   // Method to build patient card for Mobile view
   Widget buildPatientCardMobile(Patient patient) {
