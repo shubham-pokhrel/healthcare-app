@@ -1,6 +1,6 @@
 import 'patient_model.dart';
 
-List<Patient> patients = [
+List<Patient> desktopPatients = [
   Patient(
     name: "William Clark",
     bedNumber: "#32",
@@ -8,6 +8,7 @@ List<Patient> patients = [
     status: "96%",
     bloodPressure: "180/120",
     heartRate: "70 bpm",
+    images: "1",
   ),
   Patient(
     name: "Elizabeth Jones",
@@ -16,6 +17,7 @@ List<Patient> patients = [
     status: "89%",
     bloodPressure: "180/120",
     heartRate: "70 bpm",
+    images: "2",
   ),
   Patient(
     name: "David Smith",
@@ -24,5 +26,6 @@ List<Patient> patients = [
     status: "96%",
     bloodPressure: "135/86",
     heartRate: "70 bpm",
+    images: "3",
   ),
 ];

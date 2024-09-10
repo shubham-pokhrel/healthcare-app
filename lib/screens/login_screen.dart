@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 36,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w700,
                             color: Colors.black,
                             fontFamily: 'Manjari',
                           ),

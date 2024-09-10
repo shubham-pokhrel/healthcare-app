@@ -5,6 +5,7 @@ class Patient {
   final String status;
   final String bloodPressure;
   final String heartRate;
+  final String images;
 
   Patient({
     required this.name,
@@ -13,5 +14,6 @@ class Patient {
     required this.status,
     required this.bloodPressure,
     required this.heartRate,
+    required this.images,
   });
 }
