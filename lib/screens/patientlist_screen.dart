@@ -88,7 +88,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                       children: [
                         ConstrainedBox(
                           constraints: BoxConstraints(
-                            maxWidth: constraints.maxWidth * 0.31 > 460 ? 460 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.31,
+                            maxWidth: constraints.maxWidth * 0.4 > 465 ? 465 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.4,
                             maxHeight: constraints.maxWidth * 0.2 > 50 ? 50 : constraints.maxWidth * 0.2,
                           ),
                           child: TextField(
@@ -426,13 +426,16 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
         : 'lib/assets/davatar_1.png';
     //print('Patient image path: ${patient.images}');
     //print(maxW);
+    double i= double.parse("${patient.images}");
+    double value = 55 * i * i - 215 * i + 525;
+    print(value);
     //print(maxW* 0.03 > 40 ? 40 : maxW*0.03);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 7.0),
       child: Container(
         // White background for the individual patient cards
         height: maxH * 0.8 > 199 ? 199 : maxH * 0.8,
-        width: 1120,
+        width: maxW * 0.8 > 1120 ? 1120 : maxW * 0.8,
         decoration: BoxDecoration(
           color: Color(
               0xFFD3D8DE), // Background color for the patient details container
@@ -447,257 +450,260 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
               const EdgeInsets.only(left: 10.0, top: 5, right: 10, bottom: 5),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               //print image from assests folder
               Image.asset(imagePath,
                   height: 150, width: 150),
               // Name and Info
               SizedBox(
-                width: 5,
-              ),
-              Row(
+                width: 5,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                                patient.name,
+                                style: TextStyle(
+                                  fontSize: maxW* 0.03 > 40 ? 40 : maxW*0.03,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'Manjari',
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                        SizedBox(width: value,),
+                        
+                        Column(
+                          //mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                                  "Dr. Abrams",
+                                  style: TextStyle(
+                                    fontSize: maxW* 0.025 > 24 ? 24 : maxW*0.025,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Manjari',
+                                  ),
+                                ),
+                            Text(
+                                  "Last Appointment: 20/08/2024",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: 'Manjari',
+                                  ),
+                                ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
+                          // White background for the individual patient cards
+                          height: maxH * 0.6 > 100 ? 100 : maxH * 0.6,
+                          width: 306,
+                          decoration: BoxDecoration(
+                            color: Color(
+                                0xFFD3D8DE), // Background color for the patient details container
+                            border: Border.all(
+                              color: Colors.black, // Outline color
+                              width: 1, // Outline width
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                3), // Rounded corners
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 4),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(
+                                      "Bed Number",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: 'Manjari',
+                                      ),
+                                    ),
+                                    SizedBox(width: 10),
+                                    Text(
+                                      "Ward No.",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: 'Manjari',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(
+                                      patient.bedNumber,
+                                      style: TextStyle(
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: 'Manjari',
+                                      ),
+                                    ),
+                                    SizedBox(width: 12),
+                                    Text(
+                                      patient.wardNumber,
+                                      style: TextStyle(
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: 'Manjari',
+                                      ),
+                                    ),                                            
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                      ),
+                      SizedBox(width: 12.3,),
+                              // Status box
+                      Container(
+                        width: 150,
+                        height: 103,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          //print(patient.status),
+                          color: (patient.status == "96%")
+                              ? Color.fromARGB(162, 140, 215, 100)
+                              : Color.fromARGB(162, 255, 153,
+                                  0), // Green background color
+              
+                          border: Border.all(
+                            color: (patient.status == "96%")
+                                ? Color.fromARGB(162, 140, 215, 100)
+                                : Color.fromARGB(162, 255, 153, 0),
+                            width: 3,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            Image.asset('lib/assets/doxy.png',
+                                height: 50, width: 50),
+                            //SizedBox(height: 5),
+                            Text(patient.status,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'Manjari',
+                                )),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 12.3,
+                      ),
+              
+                      // Blood Pressure box
+                      Container(
+                        width: 150,
+                        height: 103,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: (patient.bloodPressure == "180/120")
+                              ? Color.fromARGB(162, 165, 50, 50)
+                              : Color.fromARGB(162, 255, 153, 0),
+                          border: Border.all(
+                            color: (patient.bloodPressure == "180/120")
+                                ? Color.fromARGB(162, 165, 50, 50)
+                                : Color.fromARGB(162, 255, 153, 0),
+                            width: 3,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                                'lib/assets/dblood-drop-donation.png',
+                                height: 50,
+                                width: 50),
+                            //SizedBox(height: 5),
                             Text(
-                              patient.name,
+                              patient.bloodPressure,
                               style: TextStyle(
-                                fontSize: maxW* 0.03 > 40 ? 40 : maxW*0.03,
-                                
+                                color: Colors.black,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Manjari',
-                                decoration: TextDecoration.underline,
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 5.0),
-                              child: Container(
-                                  // White background for the individual patient cards
-                                  height: maxH * 0.6 > 24 ? 24 : maxH * 0.6,
-                                  width: 149,
-                                  decoration: BoxDecoration(
-                                    color: Color(
-                                        0xFFD3D8DE), // Background color for the patient details container
-                                    border: Border.all(
-                                      color: Colors.black, // Outline color
-                                      width: 1, // Outline width
-                                    ),
-                                    borderRadius: BorderRadius.circular(
-                                        3), // Rounded corners
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 4),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Text(
-                                              "Bed Number",
-                                              style: TextStyle(
-                                                fontSize: 6,
-                                                fontWeight: FontWeight.w600,
-                                                fontFamily: 'Manjari',
-                                              ),
-                                            ),
-                                            SizedBox(width: 10),
-                                            Text(
-                                              "Ward No.",
-                                              style: TextStyle(
-                                                fontSize: 6,
-                                                fontWeight: FontWeight.w600,
-                                                fontFamily: 'Manjari',
-                                              ),
-                                            ),
-                                            SizedBox(width: 10),
-                                            Text(
-                                              "Consultant",
-                                              style: TextStyle(
-                                                fontSize: 6,
-                                                fontWeight: FontWeight.w600,
-                                                fontFamily: 'Manjari',
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Text(
-                                              patient.bedNumber,
-                                              style: TextStyle(
-                                                fontSize: 9,
-                                                fontWeight: FontWeight.w700,
-                                                fontFamily: 'Manjari',
-                                              ),
-                                            ),
-                                            SizedBox(width: 12),
-                                            Text(
-                                              patient.wardNumber,
-                                              style: TextStyle(
-                                                fontSize: 9,
-                                                fontWeight: FontWeight.w700,
-                                                fontFamily: 'Manjari',
-                                              ),
-                                            ),
-                                            SizedBox(width: 10),
-                                            Text(
-                                              "Dr. Joshi",
-                                              style: TextStyle(
-                                                fontSize: 9,
-                                                fontWeight: FontWeight.w700,
-                                                fontFamily: 'Manjari',
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  )),
                             ),
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          // Status box
-                          Container(
-                            width: 70,
-                            height: 45,
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              //print(patient.status),
-                              color: (patient.status == "96%")
-                                  ? Color.fromARGB(162, 140, 215, 100)
-                                  : Color.fromARGB(162, 255, 153,
-                                      0), // Green background color
-
-                              border: Border.all(
-                                color: (patient.status == "96%")
-                                    ? Color.fromARGB(162, 140, 215, 100)
-                                    : Color.fromARGB(162, 255, 153, 0),
-                                width: 3,
+                      SizedBox(
+                        width: 12.3,
+                      ),
+              
+                      // Heart Rate box
+                      Container(
+                        width: 150,
+                        height: 103,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: (patient.bloodPressure == "70")
+                              ? Color.fromARGB(162, 255, 153, 0)
+                              : Color.fromARGB(162, 140, 215,
+                                  100), // Yellow background color
+                          border: Border.all(
+                            color: (patient.bloodPressure == "70")
+                                ? Color.fromARGB(162, 255, 153, 0)
+                                : Color.fromARGB(162, 140, 215, 100),
+                            width: 3,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset('lib/assets/dheart-rate.png',
+                                height: 50, width: 50.2),
+                            SizedBox(height: 5),
+                            Text(
+                              patient.heartRate,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 8,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'Manjari',
                               ),
-                              borderRadius: BorderRadius.circular(2),
                             ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset('lib/assets/oxy.png',
-                                    height: 25, width: 24.7),
-                                //SizedBox(height: 5),
-                                Text(patient.status,
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w700,
-                                      fontFamily: 'Manjari',
-                                    )),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-
-                          // Blood Pressure box
-                          Container(
-                            width: 70,
-                            height: 45,
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              color: (patient.bloodPressure == "145/95")
-                                  ? Color.fromARGB(162, 165, 50, 50)
-                                  : Color.fromARGB(162, 140, 215,
-                                      100), // Red background color
-                              border: Border.all(
-                                color: (patient.bloodPressure == "145/95")
-                                    ? Color.fromARGB(162, 165, 50, 50)
-                                    : Color.fromARGB(162, 140, 215, 100),
-                                width: 3,
-                              ),
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                    'lib/assets/blood-drop-donation.png',
-                                    height: 20,
-                                    width: 20),
-                                //SizedBox(height: 5),
-                                Text(
-                                  patient.bloodPressure,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: 'Manjari',
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
+                          ],
+                        ),
+                      ),
+                            ],
                           ),
 
-                          // Heart Rate box
-                          Container(
-                            width: 70,
-                            height: 45,
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              color: (patient.bloodPressure == "145/95")
-                                  ? Color.fromARGB(162, 255, 153, 0)
-                                  : Color.fromARGB(162, 140, 215,
-                                      100), // Yellow background color
-                              border: Border.all(
-                                color: (patient.bloodPressure == "145/95")
-                                    ? Color.fromARGB(162, 255, 153, 0)
-                                    : Color.fromARGB(162, 140, 215, 100),
-                                width: 3,
-                              ),
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset('lib/assets/heart-rate.png',
-                                    height: 22, width: 19.2),
-                                SizedBox(height: 5),
-                                Text(
-                                  patient.heartRate,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: 'Manjari',
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                        
+                      
+                    
                 ],
-              ),
-              SizedBox(height: 5),
+              )
             ],
           ),
+          
         ),
       ),
     );
@@ -949,12 +955,11 @@ break
                             height: 45,
                             padding: const EdgeInsets.all(8.0),
                             decoration: BoxDecoration(
-                              color: (patient.bloodPressure == "145/95")
+                              color: (patient.heartRate == "60 bpm")
                                   ? Color.fromARGB(162, 255, 153, 0)
-                                  : Color.fromARGB(162, 140, 215,
-                                      100), // Yellow background color
+                                  : Color.fromARGB(162, 140, 215, 100), // Yellow background color
                               border: Border.all(
-                                color: (patient.bloodPressure == "145/95")
+                                color: (patient.heartRate == "60 bpm")
                                     ? Color.fromARGB(162, 255, 153, 0)
                                     : Color.fromARGB(162, 140, 215, 100),
                                 width: 3,

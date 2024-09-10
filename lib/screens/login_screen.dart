@@ -17,10 +17,9 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            bool isMobile =
-                constraints.maxWidth <= 600; // Check if the screen is mobile
-            double containerWidth =
-                isMobile ? constraints.maxWidth : constraints.maxWidth * 0.48;
+            bool isMobile = constraints.maxWidth <= 600; // Check if the screen is mobile
+            double containerWidth = isMobile ? constraints.maxWidth : ((constraints.maxWidth * 0.55) > 801 ? 801: constraints.maxWidth * 0.55);
+            double containerHeight = isMobile ? ((constraints.maxHeight * 0.42) > 405 ? 405 : (constraints.maxHeight * 0.42)) : 500;
 
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -97,6 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   // Box containing the form elements
                   Container(
                     width: containerWidth,
+                    height: containerHeight,
                     // constraints: BoxConstraints(
                     //   maxHeight: containerHeight,
                     // ),
@@ -237,13 +237,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           alignment: Alignment.center,
                           child: LayoutBuilder(
                             builder: (context, constraints) {
-                              double buttonWidth =
-                                  constraints.maxWidth * 0.77 > 192
-                                      ? 195
-                                      : constraints.maxWidth * 0.77;
-                              if (buttonWidth > 250) buttonWidth = 250;
-                              double buttonHeight =
-                                  constraints.maxWidth > 600 ? 52 : 30;
+                              double buttonWidth = constraints.maxWidth * 0.6 > 220 ? 220 : constraints.maxWidth * 0.6;
+                              if (buttonWidth > 260) buttonWidth = 260;
+                              double buttonHeight =  constraints.maxWidth > 600 ? 52 : 30;
 
                               return SizedBox(
                                 width: buttonWidth,
