@@ -8,12 +8,21 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _rememberMe = false;
+  ThemeMode _themeMode = ThemeMode.light; // Track theme mode
+
+  void _toggleTheme(bool isChecked) {
+    setState(() {
+      _rememberMe = isChecked;
+      _themeMode = isChecked ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(
-          0xFFE4EBF1), // #background: #E4EBF1F5;Light background color for the page
+      backgroundColor: _themeMode == ThemeMode.dark ? Color(0xFF38414B) : Color(0xFFE4EBF1), // #background: #E4EBF1F5;Light background color for the page
+      //_themeMode == ThemeMode.dark ? Color(0xFF38414B) : Color(0xFFE4EBF1), //background: #38414B;
+
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -22,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
             double containerHeight = isMobile ? ((constraints.maxHeight * 0.42) > 405 ? 405 : (constraints.maxHeight * 0.42)) : 500;
 
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: isMobile
@@ -31,42 +40,48 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   if (isMobile) ...[
                     // Mobile Layout
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Welcome",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
-                            fontFamily: 'Manjari',
+                    Padding(
+                      padding: const EdgeInsets.only(top: 50.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Welcome",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 48,
+                              height: 1,
+                              fontWeight: FontWeight.w700,
+                              color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
+                              fontFamily: 'Manjari',
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Back!",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontFamily: 'Manjari',
+                          Text(
+                            "Back!",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 48,
+                              height: 1,
+                              fontWeight: FontWeight.bold,
+                              color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
+                              fontFamily: 'Manjari',
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          "Log in to continue",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Manjari',
+                          //SizedBox(height: 0),
+                          Text(
+                            "Log in to continue",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 14,
+                              height: 1,
+                              color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Manjari',
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                      ],
+                          SizedBox(height: 8),
+                        ],
+                      ),
                     ),
                   ] else ...[
                     // Desktop Layout
@@ -76,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                         fontFamily: 'Manjari',
                       ),
                     ),
@@ -96,14 +111,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   // Box containing the form elements
                   Container(
                     width: containerWidth,
-                    height: containerHeight,
+                    //height: containerHeight,
                     // constraints: BoxConstraints(
                     //   maxHeight: containerHeight,
                     // ),
                     padding: EdgeInsets.all(24),
                     decoration: BoxDecoration(
-                      color: Color(
-                          0xFFD3D8DE), // background: #D3D8DE; Light grey background color
+                      color: _themeMode == ThemeMode.dark ? Color(0xFF45515F) : Color(0xFFD3D8DE), // background: #D3D8DE; Light grey background color background: #45515F;
+
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
@@ -120,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w400,
-                                  color: Colors.black,
+                                  color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                                   fontFamily: 'Manjari',
                                 ),
                               ),
@@ -147,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
-                                color: Colors.black,
+                                color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                                 fontFamily: 'Manjari',
                               ),
                             ),
@@ -174,6 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Checkbox(
                                   value: _rememberMe,
                                   onChanged: (bool? value) {
+                                     _toggleTheme(value ?? false);
                                     setState(() {
                                       _rememberMe = value ?? false;
                                     });
@@ -183,7 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   "Remember Me",
                                   style: TextStyle(
                                     fontSize: 10,
-                                    color: Colors.black,
+                                    color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                                     fontFamily: 'Manjari',
                                   ),
                                 ),
@@ -196,6 +212,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   color: Colors.blue,
                                   fontFamily: 'Manjari',
+                                  decoration: TextDecoration.underline,
+                                decorationColor: Colors.blue,
                                 ),
                               ),
                             ),
@@ -207,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Expanded(
                               child: Divider(
-                                color: Colors.black,
+                                color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                                 thickness: 1,
                               ),
                             ),
@@ -218,14 +236,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 "OR",
                                 style: TextStyle(
                                   fontSize: 15,
-                                  color: Colors.black,
+                                  color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                                   fontFamily: 'Manjari',
                                 ),
                               ),
                             ),
                             Expanded(
                               child: Divider(
-                                color: Colors.black,
+                                color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                                 thickness: 1,
                               ),
                             ),
@@ -237,8 +255,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           alignment: Alignment.center,
                           child: LayoutBuilder(
                             builder: (context, constraints) {
-                              double buttonWidth = constraints.maxWidth * 0.6 > 220 ? 220 : constraints.maxWidth * 0.6;
-                              if (buttonWidth > 260) buttonWidth = 260;
+                              double buttonWidth = constraints.maxWidth * 0.602 > 220 ? 220 : constraints.maxWidth * 0.602;
+                              //if (buttonWidth > 260) buttonWidth = 260;
                               double buttonHeight =  constraints.maxWidth > 600 ? 52 : 30;
 
                               return SizedBox(
@@ -254,13 +272,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                     "Sign In Using Google",
                                     style: TextStyle(
                                       fontSize: 13,
-                                      color: Colors.black,
+                                      color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
                                       fontFamily: 'Manjari',
                                     ),
                                   ),
                                   style: OutlinedButton.styleFrom(
                                     side: BorderSide(
-                                        color: Color(0xFF48A9F8), width: 2),
+                                        color: Color(0xFF48A9F8), width: 1),
                                     foregroundColor: Colors.black,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8),
@@ -290,8 +308,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              PatientlistScreen()),
+                                          builder: (context) =>  PatientlistScreen(themeMode: _themeMode, ThemeMode: _themeMode,)),
                                     );
                                   },
                                   child: Text(
@@ -327,7 +344,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text("Don't have an account?"),
+                          Text("Don't have an account?",
+                          
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: _themeMode == ThemeMode.dark ? Colors.white : Colors.black,
+                              fontFamily: 'Manjari',
+                            ),
+                          ),
                           TextButton(
                             onPressed: () {},
                             child: Text(
@@ -335,6 +359,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.blue,
+                                fontFamily: 'Manjari',
+
                               ),
                             ),
                           ),

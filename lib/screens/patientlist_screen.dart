@@ -4,7 +4,8 @@ import 'package:healthcare/models/patient_data_desktop.dart'; // Desktop data im
 import 'package:healthcare/models/patient_model.dart';
 
 class PatientlistScreen extends StatefulWidget {
-  const PatientlistScreen({super.key});
+  final ThemeMode themeMode; 
+  const PatientlistScreen({super.key, required this.themeMode, required ThemeMode ThemeMode});
 
   @override
   State<PatientlistScreen> createState() => _PatientlistScreenState();
@@ -17,9 +18,9 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = widget.themeMode == ThemeMode.dark;
     return Scaffold(
-      backgroundColor:
-          Color(0xFFE4EBF1), // Background color similar to login screen
+      backgroundColor: isDarkMode ? Color(0xFF38414B) :  Color(0xFFE4EBF1), // last is light theme ;
       body: LayoutBuilder(
         builder: (context, constraints) {
           maxW = constraints.maxWidth;
