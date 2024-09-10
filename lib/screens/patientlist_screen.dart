@@ -158,7 +158,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   children: [
                     ConstrainedBox(
                       constraints: BoxConstraints(
-                        maxWidth: constraints.maxWidth * 0.31 > 130 ? 130 : constraints.maxWidth * 0.31,
+                        maxWidth: constraints.maxWidth * 0.31 > 130 ? 130 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.31,
                         maxHeight: constraints.maxWidth * 0.2 > 27 ? 27 : constraints.maxWidth * 0.2,
                       ),
                       child: TextField(
@@ -186,7 +186,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                     ,
                     ConstrainedBox(
                       constraints: BoxConstraints(
-                        maxWidth: constraints.maxWidth * 0.3 > 118 ? 118 : constraints.maxWidth * 0.3,
+                        maxWidth: constraints.maxWidth * 0.28 > 118 ? 118 + constraints.maxWidth * 0.01 : constraints.maxWidth * 0.28,
                         maxHeight: constraints.maxWidth * 0.2 > 27 ? 27 : constraints.maxWidth * 0.2,
                       ),
                       child: TextField(
@@ -251,7 +251,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   padding: const EdgeInsets.only(right: 10.0, left: 10.0, bottom: 10.0, top: 10),
                   child: SizedBox(
                     height: constraints.maxHeight * 0.65 > 557 ? 557 : constraints.maxHeight * 0.65, // Adjust height to your needs
-                    width: constraints.maxWidth * 0.95 > 332 ? 332 + constraints.maxWidth *0.21 : constraints.maxWidth * 0.95, 
+                    width: constraints.maxWidth * 0.95 > 332 ? 332 + constraints.maxWidth *0.3 : constraints.maxWidth * 0.95, 
                     child: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
