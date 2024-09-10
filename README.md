@@ -1,4 +1,6 @@
-# healthcare
+# Healthcare APP
+
+Go Through the Readme file for the Guide.
 
 A Flutter project.
 
@@ -12,6 +14,14 @@ This project is a starting point for a Flutter application. A few resources to g
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Minimum Requirement Screen Size
+
+### Mobile Screen
+- 360*760
+
+### Desktop Screen
+- 1440*980
 
 ## Installation
 
