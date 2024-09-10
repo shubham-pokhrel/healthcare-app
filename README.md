@@ -52,3 +52,6 @@ flutter run
 ## Features
 1. A login Screen with Sign in with Google
 2. Detailed view of each Patient with last appointment date.
+
+## Special Note 
+"Remember me" checkbox is used for toggle switch between light and dark themes.
