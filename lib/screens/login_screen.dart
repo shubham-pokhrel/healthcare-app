@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthcare/screens/patientlist_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -11,18 +12,23 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFE4EBF1), // #background: #E4EBF1F5;Light background color for the page
+      backgroundColor: Color(
+          0xFFE4EBF1), // #background: #E4EBF1F5;Light background color for the page
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            bool isMobile = constraints.maxWidth <= 600; // Check if the screen is mobile
-            double containerWidth = isMobile ? constraints.maxWidth : constraints.maxWidth * 0.48;
+            bool isMobile =
+                constraints.maxWidth <= 600; // Check if the screen is mobile
+            double containerWidth =
+                isMobile ? constraints.maxWidth : constraints.maxWidth * 0.48;
 
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: isMobile ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+                crossAxisAlignment: isMobile
+                    ? CrossAxisAlignment.start
+                    : CrossAxisAlignment.center,
                 children: [
                   if (isMobile) ...[
                     // Mobile Layout
@@ -96,7 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     // ),
                     padding: EdgeInsets.all(24),
                     decoration: BoxDecoration(
-                      color: Color(0xFFD3D8DE), // background: #D3D8DE; Light grey background color
+                      color: Color(
+                          0xFFD3D8DE), // background: #D3D8DE; Light grey background color
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
@@ -123,7 +130,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 12),
                                 ),
                               ),
                             ],
@@ -150,7 +158,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                                contentPadding:
+                                    EdgeInsets.symmetric(horizontal: 12),
                               ),
                             ),
                           ],
@@ -203,7 +212,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
                               child: Text(
                                 "OR",
                                 style: TextStyle(
@@ -227,10 +237,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           alignment: Alignment.center,
                           child: LayoutBuilder(
                             builder: (context, constraints) {
-                              double buttonWidth = constraints.maxWidth * 0.77 > 192 ? 195 : constraints.maxWidth * 0.77;
-                              if (buttonWidth> 250)
-                                buttonWidth = 250;
-                              double buttonHeight = constraints.maxWidth > 600 ? 52 : 30;
+                              double buttonWidth =
+                                  constraints.maxWidth * 0.77 > 192
+                                      ? 195
+                                      : constraints.maxWidth * 0.77;
+                              if (buttonWidth > 250) buttonWidth = 250;
+                              double buttonHeight =
+                                  constraints.maxWidth > 600 ? 52 : 30;
 
                               return SizedBox(
                                 width: buttonWidth,
@@ -250,7 +263,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   style: OutlinedButton.styleFrom(
-                                    side: BorderSide(color: Color(0xFF48A9F8), width: 2),
+                                    side: BorderSide(
+                                        color: Color(0xFF48A9F8), width: 2),
                                     foregroundColor: Colors.black,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8),
@@ -268,9 +282,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: LayoutBuilder(
                             builder: (context, constraints) {
                               double buttonWidth = constraints.maxWidth * 0.22;
-                              double buttonHeight = constraints.maxWidth > 600 ? 45 : 40;
-                              if (buttonWidth> 140)
-                                buttonWidth = 140;
+                              double buttonHeight =
+                                  constraints.maxWidth > 600 ? 45 : 40;
+                              if (buttonWidth > 140) buttonWidth = 140;
 
                               return SizedBox(
                                 width: buttonWidth,
@@ -279,7 +293,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => PatientlistScreen()),
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              PatientlistScreen()),
                                     );
                                   },
                                   child: Text(
