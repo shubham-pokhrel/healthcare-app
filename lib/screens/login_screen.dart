@@ -11,12 +11,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xE4EBF1F5), // #background: #E4EBF1F5;Light background color for the page
+      backgroundColor: Color(0xFFE4EBF1), // #background: #E4EBF1F5;Light background color for the page
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
             bool isMobile = constraints.maxWidth <= 600; // Check if the screen is mobile
-            double containerWidth = isMobile ? constraints.maxWidth : constraints.maxWidth * 0.35;
+            double containerWidth = isMobile ? constraints.maxWidth : constraints.maxWidth * 0.48;
 
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     // ),
                     padding: EdgeInsets.all(24),
                     decoration: BoxDecoration(
-                      color: Color(0xFFD3DDE5), // background: #D3D8DE; Light grey background color
+                      color: Color(0xFFD3D8DE), // background: #D3D8DE; Light grey background color
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
@@ -227,7 +227,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           alignment: Alignment.center,
                           child: LayoutBuilder(
                             builder: (context, constraints) {
-                              double buttonWidth = constraints.maxWidth * 0.65;
+                              double buttonWidth = constraints.maxWidth * 0.77 > 192 ? 195 : constraints.maxWidth * 0.77;
                               if (buttonWidth> 250)
                                 buttonWidth = 250;
                               double buttonHeight = constraints.maxWidth > 600 ? 52 : 30;
@@ -244,7 +244,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   label: Text(
                                     "Sign In Using Google",
                                     style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 13,
                                       color: Colors.black,
                                       fontFamily: 'Manjari',
                                     ),
