@@ -456,7 +456,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
     //print('Patient image path: ${patient.images}');
     //print(maxW);
     double i= double.parse("${patient.images}");
-    double value = (65 * i * i - 255 * i + 520)-(maxW/1440);
+    double value = ((131/2) * i * i - (511/2) * i + 545)-(maxW/1440);
     //print(maxW);
     //print(maxW* 0.03 > 40 ? 40 : maxW*0.03);
     return Padding(
