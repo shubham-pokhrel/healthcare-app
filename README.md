@@ -17,15 +17,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-## Minimum Requirement Screen Size
-
-### Mobile Screen
-- 360*760
-
-### Desktop Screen 
-- 1440*980 (This is due to patient list screen in desktop)
-
-## Installation
+## Installation to run code on your machine
 
 Follow these steps to get a copy of the project and run it on your local machine.
 
@@ -55,6 +47,26 @@ flutter run
 
 ## Special Note 
 "Remember me" checkbox is used for toggle switch between light and dark themes.
+
+## APK Installation on Linux System
+
+1. Download the [.deb package](https://github.com/shubham-pokhrel/healthcare-app/blob/main/healthcare.deb)
+2. Open a terminal and navigate to the directory containing the .deb file.
+3. Run the following command to install:
+~~~
+sudo dpkg -i my_app.deb
+~~~
+4. You can now run the app from the application menu or by typing your_app_name in the terminal.
+
+## APK Installation on Android Mobile System
+
+1. Download the [APK file](https://stdntpartners-my.sharepoint.com/:u:/g/personal/shubham_pokhrel_studentambassadors_com/EV_UdrvzbVBKpo8jMCxkLioBJDTlbmxk0RgBkTRWD-vZPA?e=M76bEH) to your Android device
+2. On your Android device, enable installation from unknown sources:
+3. Go to Settings → Security or Privacy.
+4. Scroll down and enable Unknown Sources or Install Unknown Apps for the browser or file manager you are using to open the APK.
+5. Using a file manager on your device, locate the downloaded APK file.
+6. Tap on the APK file and follow the prompts to install the app.
+7. Once installed, open the app from your app drawer.
 
 ## Screenshots
 
