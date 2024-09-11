@@ -387,7 +387,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                   0xFF48A9F8), // Blue color similar to the Sign In button
                               foregroundColor: Color(0xE4EBF1F5),
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 10),
+                                  horizontal: 12, vertical: 8),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
@@ -409,11 +409,11 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                   // List of patients for Mobile
                   Padding(
                     padding: const EdgeInsets.only(
-                        right: 29.0, left: 15.0, bottom: 20.0),
+                        right: 29.0, left: 15.0, bottom: 10.0),
                     child: Container(
                       color: isDarkMode ? Color(0xFF45515F) :  Color(0xFFD3D8DE),
                       padding: const EdgeInsets.only(
-                          right: 10.0, left: 10.0, bottom: 10.0, top: 10),
+                          right: 10.0, left: 10.0, bottom: 10.0, top: 0),
                       child: SizedBox(
                         height: constraints.maxHeight * 0.65 > 557 ? 557 : constraints.maxHeight * 0.65, // Adjust height to your needs
                         width: constraints.maxWidth * 0.95 > 332 ? 332 + constraints.maxWidth * 0.3 : constraints.maxWidth * 0.95,
