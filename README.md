@@ -50,8 +50,50 @@ flutter run
 ~~~
 
 ## Features
-1. A login Screen with Sign in with Google
-2. Detailed view of each Patient with last appointment date.
+1. A Dynamic number of Patient details can be displayed using patient_data_{mobile or desktop}.dart
+2. Light and Dark Theme modes can be switched.
 
 ## Special Note 
 "Remember me" checkbox is used for toggle switch between light and dark themes.
+
+## Screenshots
+
+1. Light Mobile Login Screen
+
+
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/loginscreen_mobile.png " Light Mobile Login Screen")
+  
+2. Dark Mobile Login Screen
+
+   
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/dark_loginscreen_mobile.png " Dark Mobile Login Screen")
+
+3. Light Desktop Login Screen
+
+
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/loginscreen_desktop.png " Light Desktop Login Screen")
+
+4. Dark Desktop Login Screen
+
+
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/dark_loginscreen_desktop.png " Dark Desktop Login Screen")
+
+5. Light Mobile Patient List Screen
+ 
+
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/patientlist_screen_mobile.png " Light Mobile Patient List Screen")
+
+6. Dark Mobile Patient List Screen
+ 
+
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/dark_patientlist_screen_mobile.png " Dark Mobile Patient List Screen")
+
+7. Light Desktop Patient List Screen
+ 
+
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/patientlist_screen_desktop.png " Light Desktop Patient List Screen")
+
+8. Dark Desktop Patient List Screen
+ 
+
+   ![Alt text](https://github.com/shubham-pokhrel/healthcare-app/blob/main/lib/assets/screenshots/dark_patientlist_screen_desktop.png " Dark Desktop Patient List Screen")
