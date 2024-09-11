@@ -54,7 +54,7 @@ flutter run
 2. Open a terminal and navigate to the directory containing the .deb file.
 3. Run the following command to install:
 ~~~
-sudo dpkg -i my_app.deb
+sudo dpkg -i healthcare.deb
 ~~~
 4. You can now run the app from the application menu or by typing your_app_name in the terminal.
 
