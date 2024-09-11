@@ -387,7 +387,7 @@ class _PatientlistScreenState extends State<PatientlistScreen> {
                                   0xFF48A9F8), // Blue color similar to the Sign In button
                               foregroundColor: Color(0xE4EBF1F5),
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 8),
+                                  horizontal: 12, vertical: 5),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
