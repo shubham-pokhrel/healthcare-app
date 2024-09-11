@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:healthcare/screens/patientlist_screen.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginScreenState createState() => _LoginScreenState();
 }
 
@@ -20,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _themeMode == ThemeMode.dark ? Color(0xFF38414B) : Color(0xFFE4EBF1), // #background: #E4EBF1F5;Light background color for the page
+      backgroundColor: _themeMode == ThemeMode.dark ? const Color(0xFF38414B) : const Color(0xFFE4EBF1), // #background: #E4EBF1F5;Light background color for the page
       //_themeMode == ThemeMode.dark ? Color(0xFF38414B) : Color(0xFFE4EBF1), //background: #38414B;
 
       body: Center(
@@ -28,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
           builder: (context, constraints) {
             bool isMobile = constraints.maxWidth <= 600; // Check if the screen is mobile
             double containerWidth = isMobile ? constraints.maxWidth : ((constraints.maxWidth * 0.55) > 801 ? 801: constraints.maxWidth * 0.55);
-            double containerHeight = isMobile ? ((constraints.maxHeight * 0.42) > 405 ? 405 : (constraints.maxHeight * 0.42)) : 500;
+            //double containerHeight = isMobile ? ((constraints.maxHeight * 0.42) > 405 ? 405 : (constraints.maxHeight * 0.42)) : 500;
 
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -79,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontFamily: 'Manjari',
                             ),
                           ),
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                         ],
                       ),
                     ),
@@ -95,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontFamily: 'Manjari',
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       "Log in to continue",
                       textAlign: TextAlign.center,
@@ -106,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(height: 32),
+                    const SizedBox(height: 32),
                   ],
                   // Box containing the form elements
                   Container(
@@ -115,9 +118,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     // constraints: BoxConstraints(
                     //   maxHeight: containerHeight,
                     // ),
-                    padding: EdgeInsets.all(24),
+                    padding: const EdgeInsets.all(24),
                     decoration: BoxDecoration(
-                      color: _themeMode == ThemeMode.dark ? Color(0xFF45515F) : Color(0xFFD3D8DE), // background: #D3D8DE; Light grey background color background: #45515F;
+                      color: _themeMode == ThemeMode.dark ? const Color(0xFF45515F) : const Color(0xFFD3D8DE), // background: #D3D8DE; Light grey background color background: #45515F;
 
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -139,20 +142,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontFamily: 'Manjari',
                                 ),
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               TextField(
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 12),
+                                      const EdgeInsets.symmetric(horizontal: 12),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         // Password Input
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontFamily: 'Manjari',
                               ),
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             TextField(
                               obscureText: true,
                               decoration: InputDecoration(
@@ -174,12 +177,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 contentPadding:
-                                    EdgeInsets.symmetric(horizontal: 12),
+                                    const EdgeInsets.symmetric(horizontal: 12),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 0),
+                        const SizedBox(height: 0),
                         // Remember Me and Forgot Password
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -207,7 +210,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             TextButton(
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 "Forgot Password?",
                                 style: TextStyle(
                                   color: Colors.blue,
@@ -219,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         // OR Divider
                         Row(
                           children: [
@@ -249,7 +252,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         // Google Sign In Button
                         Align(
                           alignment: Alignment.center,
@@ -277,7 +280,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   style: OutlinedButton.styleFrom(
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                         color: Color(0xFF48A9F8), width: 1),
                                     foregroundColor: Colors.black,
                                     shape: RoundedRectangleBorder(
@@ -289,7 +292,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         // Sign In Button
                         Align(
                           alignment: Alignment.center,
@@ -308,22 +311,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>  PatientlistScreen(themeMode: _themeMode, ThemeMode: _themeMode,)),
+                                          builder: (context) =>  PatientlistScreen(themeMode: _themeMode,)),
                                     );
                                   },
-                                  child: Text(
+                                  style: ElevatedButton.styleFrom(
+                                    foregroundColor: Colors.white,
+                                    backgroundColor: const Color(0xFF48A9F8),
+                                    padding: const EdgeInsets.symmetric(vertical: 10),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  child: const Text(
                                     "Sign In",
                                     style: TextStyle(
                                       fontSize: 14,
                                       fontFamily: 'Manjari',
-                                    ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    backgroundColor: Color(0xFF48A9F8),
-                                    padding: EdgeInsets.symmetric(vertical: 10),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                   ),
                                 ),
@@ -334,7 +337,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 7),
+                  const SizedBox(height: 7),
                   // Sign Up Text Outside the Box
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -354,7 +357,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           TextButton(
                             onPressed: () {},
-                            child: Text(
+                            child: const Text(
                               "Sign Up",
                               style: TextStyle(
                                 color: Colors.blue,
