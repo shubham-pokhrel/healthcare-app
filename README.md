@@ -22,8 +22,8 @@ samples, guidance on mobile development, and a full API reference.
 ### Mobile Screen
 - 360*760
 
-### Desktop Screen
-- 1440*980
+### Desktop Screen 
+- 1440*980 (This is due to patient list screen in desktop)
 
 ## Installation
 
